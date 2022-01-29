@@ -2,37 +2,51 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.flights{
+  margin: 20px;
+}
+.flights-head{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.flight-head-left{
+  color:rgb(199, 225, 247);
+  letter-spacing: 2px;
+  text-shadow: 5px 5px 5px #8C94FF;
+  font-size: 50px;
+}
+table{
+  margin:auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+table,th,td{
+   padding: 20px;
+   text-align: center;
+   border: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+tr:hover{
+  transform: scaleX(1.1);
+}
+tr:nth-child(even){
+  background-color: rgb(199, 225, 247);
+}
+tr:nth-child(odd){
+  background-color:rgb(227, 238, 248);
+}
+.booking{
+  margin:20px;
+  height: 100%;
+}
+.booking-form{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 10px;
+  height: 100%;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.booking-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }

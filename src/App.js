@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+
+import { useEffect, useState } from 'react';
+import { Switch,Route } from 'react-router-dom';
 import './App.css';
+import { Booking } from './Booking';
+import { Flights } from './Flights';
 
 function App() {
+  const [flights,setflights]=useState([])
+
+  async function getFlights() {
+    const dta=await fetch("https://flight-booking-node.herokuapp.com/flights")
+    const flghts=await dta.json();
+    setflights(flghts)
+    console.log(flghts)
+  }
+
+  useEffect(getFlights,[])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route exact path="/"><Flights/></Route>
+        <Route path="/flight-booking/:_id"><Booking/></Route>
+      </Switch>
     </div>
   );
 }
