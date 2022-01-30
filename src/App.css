@@ -16,14 +16,24 @@
   text-shadow: 5px 5px 5px #8C94FF;
   font-size: 50px;
 }
+.flight-footer{
+  display:flex;
+  justify-content: flex-end;
+}
 table{
   margin:auto;
 }
 
 table,th,td{
-   padding: 20px;
+   padding: 10px;
    text-align: center;
    border: none;
+   font-size: 20px;
+}
+.add{
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
 }
 
 tr:hover{

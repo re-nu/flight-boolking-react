@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Flight } from './Flight';
+import Button from '@mui/material/Button';
+import { useHistory } from 'react-router-dom';
 
 export function Flights() {
   const [flights, setflights] = useState([]);
+  const history=useHistory()
 
   async function getFlights() {
     const dta = await fetch("https://flight-booking-node.herokuapp.com/flights");
@@ -30,6 +33,9 @@ export function Flights() {
           <th>arrival time</th>
           <th>Duration</th>
           <th>Price</th>
+          <th>Book</th>
+          <th>edit</th>
+          <th>delete</th>
         </tr>
         {flights.map(({ name, from, to, date, departure, arrive, Duration, price,_id }, index) => (
           <Flight 
@@ -45,6 +51,9 @@ export function Flights() {
           key={index} />
         ))}
       </table>
+       <div className='flight-footer'>
+       <Button variant="outlined" onClick={()=>history.push("/add-flight")}>Add new flight</Button>
+       </div>
     </div>
   );
 }
